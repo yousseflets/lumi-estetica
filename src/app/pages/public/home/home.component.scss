@@ -262,9 +262,13 @@
 }
 
 .cta-logo {
-  width: min(160px, 46vw);
+  width: min(190px, 40vw);
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
   margin: 0 auto 1rem;
   position: relative;
+  border-radius: 20px;
 }
 
 .cta-final h2 {

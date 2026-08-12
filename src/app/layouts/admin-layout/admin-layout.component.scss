@@ -40,10 +40,11 @@
 }
 
 .side-logo {
-  height: 44px;
-  width: auto;
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
   display: block;
-  border-radius: 14px;
+  border-radius: 16px;
 }
 
 .side-label {

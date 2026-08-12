@@ -49,7 +49,8 @@ import { RouterLink } from '@angular/router';
     .logo {
       display: flex;
       align-items: center;
-      height: 36px;
+      height: 44px;
+      width: 44px;
       border-radius: 12px;
       overflow: hidden;
       background: #fdfbf7;
@@ -57,8 +58,9 @@ import { RouterLink } from '@angular/router';
     }
 
     .logo img {
-      height: 36px;
-      width: auto;
+      height: 44px;
+      width: 44px;
+      object-fit: cover;
       display: block;
     }
 
