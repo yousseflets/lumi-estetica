@@ -20,10 +20,10 @@
         <tbody>
           @for (d of data.depoimentos(); track d.id) {
             <tr>
-              <td>{{ d.nome }}</td>
-              <td>{{ d.tratamento }}</td>
-              <td>{{ d.nota }}/5</td>
-              <td><span class="badge" [class.ok]="d.publicado">{{ d.publicado ? 'Publicado' : 'Rascunho' }}</span></td>
+              <td data-label="Nome">{{ d.nome }}</td>
+              <td data-label="Tratamento">{{ d.tratamento }}</td>
+              <td data-label="Nota">{{ d.nota }}/5</td>
+              <td data-label="Status"><span class="badge" [class.ok]="d.publicado">{{ d.publicado ? 'Publicado' : 'Rascunho' }}</span></td>
             </tr>
           }
         </tbody>

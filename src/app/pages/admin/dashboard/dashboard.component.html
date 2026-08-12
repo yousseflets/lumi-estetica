@@ -20,51 +20,33 @@
 <div class="grid-2">
   <div class="panel">
     <h2 class="panel-title">Próximos agendamentos</h2>
-    <div class="table-wrap">
-      <table class="data">
-        <thead>
-          <tr>
-            <th>Cliente</th>
-            <th>Procedimento</th>
-            <th>Quando</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (a of data.agendamentos().slice(0, 5); track a.id) {
-            <tr>
-              <td>{{ a.clienteNome }}</td>
-              <td>{{ a.procedimentoNome }}</td>
-              <td>{{ data.formatDateTime(a.dataHora) }}</td>
-              <td><span class="badge">{{ a.status }}</span></td>
-            </tr>
-          }
-        </tbody>
-      </table>
+    <div class="cards">
+      @for (a of data.agendamentos().slice(0, 5); track a.id) {
+        <article class="item">
+          <strong>{{ a.clienteNome }}</strong>
+          <p>{{ a.procedimentoNome }}</p>
+          <div class="meta">
+            <span>{{ data.formatDateTime(a.dataHora) }}</span>
+            <span class="badge">{{ a.status }}</span>
+          </div>
+        </article>
+      }
     </div>
   </div>
 
   <div class="panel">
     <h2 class="panel-title">Leads recentes</h2>
-    <div class="table-wrap">
-      <table class="data">
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Interesse</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (l of data.leads().slice(0, 5); track l.id) {
-            <tr>
-              <td>{{ l.nome }}</td>
-              <td>{{ l.interesse }}</td>
-              <td><span class="badge">{{ l.status }}</span></td>
-            </tr>
-          }
-        </tbody>
-      </table>
+    <div class="cards">
+      @for (l of data.leads().slice(0, 5); track l.id) {
+        <article class="item">
+          <strong>{{ l.nome }}</strong>
+          <p>{{ l.interesse }}</p>
+          <div class="meta">
+            <span>{{ data.formatDateTime(l.criadoEm) }}</span>
+            <span class="badge">{{ l.status }}</span>
+          </div>
+        </article>
+      }
     </div>
   </div>
 </div>

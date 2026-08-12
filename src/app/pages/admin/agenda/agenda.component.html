@@ -52,11 +52,11 @@
         <tbody>
           @for (a of data.agendamentos(); track a.id) {
             <tr>
-              <td>{{ data.formatDateTime(a.dataHora) }}</td>
-              <td>{{ a.clienteNome }}</td>
-              <td>{{ a.procedimentoNome }}</td>
-              <td>{{ a.profissionalNome }}</td>
-              <td><span class="badge">{{ a.status }}</span></td>
+              <td data-label="Quando">{{ data.formatDateTime(a.dataHora) }}</td>
+              <td data-label="Cliente">{{ a.clienteNome }}</td>
+              <td data-label="Procedimento">{{ a.procedimentoNome }}</td>
+              <td data-label="Profissional">{{ a.profissionalNome }}</td>
+              <td data-label="Status"><span class="badge">{{ a.status }}</span></td>
             </tr>
           }
         </tbody>

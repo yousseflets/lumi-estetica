@@ -20,9 +20,9 @@
         <tbody>
           @for (item of data.antesDepois(); track item.id) {
             <tr>
-              <td>{{ item.titulo }}</td>
-              <td>{{ item.procedimento }}</td>
-              <td><span class="badge" [class.ok]="item.publicado">{{ item.publicado ? 'Publicado' : 'Rascunho' }}</span></td>
+              <td data-label="Título">{{ item.titulo }}</td>
+              <td data-label="Procedimento">{{ item.procedimento }}</td>
+              <td data-label="Status"><span class="badge" [class.ok]="item.publicado">{{ item.publicado ? 'Publicado' : 'Rascunho' }}</span></td>
             </tr>
           }
         </tbody>

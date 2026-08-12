@@ -15,12 +15,17 @@
       <tbody>
         @for (l of data.leads(); track l.id) {
           <tr>
-            <td>{{ data.formatDateTime(l.criadoEm) }}</td>
-            <td>{{ l.nome }}</td>
-            <td>{{ l.email }}<br /><small>{{ l.telefone }}</small></td>
-            <td>{{ l.interesse }}</td>
-            <td>{{ l.mensagem }}</td>
-            <td>
+            <td data-label="Quando">{{ data.formatDateTime(l.criadoEm) }}</td>
+            <td data-label="Nome">{{ l.nome }}</td>
+            <td data-label="Contato">
+              <span class="stack">
+                <span>{{ l.email }}</span>
+                <small>{{ l.telefone }}</small>
+              </span>
+            </td>
+            <td data-label="Interesse">{{ l.interesse }}</td>
+            <td data-label="Mensagem">{{ l.mensagem }}</td>
+            <td data-label="Status">
               <select [value]="l.status" (change)="atualizar(l.id, $any($event.target).value)">
                 <option value="novo">Novo</option>
                 <option value="contactado">Contactado</option>

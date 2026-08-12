@@ -17,9 +17,9 @@
         <tbody>
           @for (c of data.categorias(); track c.id) {
             <tr>
-              <td>{{ c.nome }}</td>
-              <td>{{ c.slug }}</td>
-              <td>{{ c.descricao }}</td>
+              <td data-label="Nome">{{ c.nome }}</td>
+              <td data-label="Slug">{{ c.slug }}</td>
+              <td data-label="Descrição">{{ c.descricao }}</td>
             </tr>
           }
         </tbody>

@@ -1,17 +1,10 @@
 <div class="shell" [class.menu-open]="menuOpen()">
-  <header class="mobile-bar">
-    <a routerLink="/" class="brand" aria-label="LUMI - inicio">
-      <img src="assets/logo-lumi.png" alt="LUMI" class="side-logo" />
-    </a>
-    <button class="menu-btn" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
-      <span></span><span></span>
-    </button>
-  </header>
+  <app-mobile-topbar [open]="menuOpen()" (toggled)="toggleMenu()" (closed)="closeMenu()" />
 
   <div class="backdrop" (click)="closeMenu()"></div>
 
   <aside class="side">
-    <a routerLink="/" class="brand desktop-brand" aria-label="LUMI - inicio" (click)="closeMenu()">
+    <a routerLink="/" class="brand" aria-label="LUMI - inicio" (click)="closeMenu()">
       <img src="assets/logo-lumi.png" alt="LUMI" class="side-logo" />
     </a>
     <p class="side-label">Área do cliente</p>

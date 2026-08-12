@@ -20,10 +20,10 @@
         <tbody>
           @for (p of data.profissionais(); track p.id) {
             <tr>
-              <td>{{ p.nome }}</td>
-              <td>{{ p.cargo }}</td>
-              <td>{{ p.especialidades.join(', ') }}</td>
-              <td><span class="badge" [class.ok]="p.ativo">{{ p.ativo ? 'Ativo' : 'Inativo' }}</span></td>
+              <td data-label="Nome">{{ p.nome }}</td>
+              <td data-label="Cargo">{{ p.cargo }}</td>
+              <td data-label="Especialidades">{{ p.especialidades.join(', ') }}</td>
+              <td data-label="Status"><span class="badge" [class.ok]="p.ativo">{{ p.ativo ? 'Ativo' : 'Inativo' }}</span></td>
             </tr>
           }
         </tbody>

@@ -29,11 +29,11 @@
         <tbody>
           @for (p of data.procedimentos(); track p.id) {
             <tr>
-              <td>{{ p.nome }}</td>
-              <td>{{ data.categoriaNome(p.categoriaId) }}</td>
-              <td>{{ p.duracaoMinutos }} min</td>
-              <td>{{ data.formatCurrency(p.preco) }}</td>
-              <td>{{ p.destaque ? 'Sim' : 'Não' }}</td>
+              <td data-label="Nome">{{ p.nome }}</td>
+              <td data-label="Categoria">{{ data.categoriaNome(p.categoriaId) }}</td>
+              <td data-label="Duração">{{ p.duracaoMinutos }} min</td>
+              <td data-label="Preço">{{ data.formatCurrency(p.preco) }}</td>
+              <td data-label="Destaque">{{ p.destaque ? 'Sim' : 'Não' }}</td>
             </tr>
           }
         </tbody>

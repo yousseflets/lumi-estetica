@@ -7,9 +7,9 @@
       <div class="field"><label>Telefone</label><input formControlName="telefone" /></div>
       <div class="field"><label>CPF</label><input formControlName="cpf" /></div>
       <div class="field"><label>Nascimento</label><input formControlName="dataNascimento" type="date" /></div>
-      <div class="field"><label>Endereço</label><input formControlName="endereco" /></div>
+      <div class="field"><label>EndereÃ§o</label><input formControlName="endereco" /></div>
     </div>
-    <div class="field"><label>Observações</label><textarea formControlName="observacoes"></textarea></div>
+    <div class="field"><label>ObservaÃ§Ãµes</label><textarea formControlName="observacoes"></textarea></div>
     <button class="btn btn-primary" type="submit">Cadastrar</button>
   </form>
 
@@ -23,10 +23,15 @@
         <tbody>
           @for (c of data.clientes(); track c.id) {
             <tr>
-              <td>{{ c.nome }}</td>
-              <td>{{ c.email }}<br /><small>{{ c.telefone }}</small></td>
-              <td>{{ c.cpf }}</td>
-              <td>{{ data.formatDate(c.criadoEm) }}</td>
+              <td data-label="Nome">{{ c.nome }}</td>
+              <td data-label="Contato">
+                <span class="stack">
+                  <span>{{ c.email }}</span>
+                  <small>{{ c.telefone }}</small>
+                </span>
+              </td>
+              <td data-label="CPF">{{ c.cpf }}</td>
+              <td data-label="Desde">{{ data.formatDate(c.criadoEm) }}</td>
             </tr>
           }
         </tbody>

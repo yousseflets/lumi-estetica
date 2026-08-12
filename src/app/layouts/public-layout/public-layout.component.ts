@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
+import { MobileTopbarComponent } from '../../shared/components/mobile-topbar/mobile-topbar.component';
 
 @Component({
   selector: 'app-public-layout',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MobileTopbarComponent],
   templateUrl: './public-layout.component.html',
   styleUrl: './public-layout.component.scss'
 })

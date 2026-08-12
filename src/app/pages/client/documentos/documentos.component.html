@@ -8,10 +8,10 @@
       <tbody>
         @for (d of data.documentos(); track d.id) {
           <tr>
-            <td>{{ d.titulo }}</td>
-            <td>{{ d.tipo }}</td>
-            <td>{{ data.formatDate(d.data) }}</td>
-            <td><a class="btn btn-ghost" [href]="d.url">Abrir</a></td>
+            <td data-label="Documento">{{ d.titulo }}</td>
+            <td data-label="Tipo">{{ d.tipo }}</td>
+            <td data-label="Data">{{ data.formatDate(d.data) }}</td>
+            <td data-label="Arquivo"><a class="btn btn-ghost" [href]="d.url">Abrir</a></td>
           </tr>
         }
       </tbody>

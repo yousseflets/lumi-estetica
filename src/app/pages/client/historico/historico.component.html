@@ -8,11 +8,11 @@
       <tbody>
         @for (a of data.atendimentosCliente(); track a.id) {
           <tr>
-            <td>{{ data.formatDate(a.data) }}</td>
-            <td>{{ a.procedimento }}</td>
-            <td>{{ a.profissional }}</td>
-            <td>{{ a.observacoes }}</td>
-            <td>{{ data.formatCurrency(a.valor) }}</td>
+            <td data-label="Data">{{ data.formatDate(a.data) }}</td>
+            <td data-label="Procedimento">{{ a.procedimento }}</td>
+            <td data-label="Profissional">{{ a.profissional }}</td>
+            <td data-label="Observações">{{ a.observacoes }}</td>
+            <td data-label="Valor">{{ data.formatCurrency(a.valor) }}</td>
           </tr>
         }
       </tbody>
