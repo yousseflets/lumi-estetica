@@ -11,9 +11,20 @@
 }
 
 .stars {
-  color: var(--lumi-champagne);
-  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
   margin-bottom: 0.75rem;
+}
+
+.star {
+  width: 16px;
+  height: 16px;
+  fill: rgba(168, 134, 86, 0.22);
+}
+
+.star.on {
+  fill: #a88656;
 }
 
 .item > p {
@@ -28,7 +39,7 @@ footer {
   gap: 0.15rem;
 }
 
-span {
+footer span {
   color: var(--lumi-muted);
   font-size: 0.85rem;
 }

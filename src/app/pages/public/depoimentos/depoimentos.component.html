@@ -2,19 +2,30 @@
   <div class="container">
     <div class="section-head reveal">
       <p class="eyebrow">Depoimentos</p>
-      <h2>Histórias de cuidado</h2>
-      <p>A confiança das nossas clientes é o que mais nos move.</p>
+      <h2>{{ titulo }}</h2>
+      <p>{{ subtitulo }}</p>
     </div>
 
     <div class="grid">
       @for (d of data.depoimentos(); track d.id) {
         @if (d.publicado) {
           <blockquote class="item reveal">
-            <div class="stars">{{ '?'.repeat(d.nota) }}</div>
-            <p>{{ d.texto }}</p>
+            <div class="stars" [attr.aria-label]="d.nota + ' de 5'">
+              @for (s of niveis; track s) {
+                <svg
+                  class="star"
+                  [class.on]="s <= d.nota"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path d="M12 2.5l2.9 5.88 6.49.94-4.7 4.58 1.11 6.47L12 17.77 6.2 20.37l1.11-6.47-4.7-4.58 6.49-.94L12 2.5z" />
+                </svg>
+              }
+            </div>
+            <p>"{{ d.texto }}"</p>
             <footer>
               <strong>{{ d.nome }}</strong>
-              <span>{{ d.tratamento }} · {{ data.formatDate(d.data) }}</span>
+              <span>{{ d.tratamento }} {{ sep }} {{ data.formatDate(d.data) }}</span>
             </footer>
           </blockquote>
         }

@@ -59,12 +59,18 @@
   text-transform: uppercase;
   color: var(--lumi-ink-soft);
   font-weight: 500;
+  position: relative;
+  transition: color 0.25s var(--ease), transform 0.25s var(--ease);
 }
 
-.nav a:hover,
+.nav a:not(.cta):hover,
+.drawer a:not(.cta):hover {
+  color: var(--lumi-gold-deep);
+  transform: scale(1.08);
+}
+
 .nav a.active,
-.drawer a.active,
-.drawer a:hover {
+.drawer a.active {
   color: var(--lumi-gold-deep);
 }
 
@@ -73,6 +79,18 @@
   color: var(--lumi-gold-deep) !important;
   padding: 0.55rem 1.1rem;
   border-radius: 999px;
+  background: transparent;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease), transform 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+
+.cta:hover {
+  background: var(--lumi-gold-deep);
+  color: #fff !important;
+  border-color: var(--lumi-gold-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(139, 109, 66, 0.22);
 }
 
 .account {
