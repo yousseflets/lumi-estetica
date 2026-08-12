@@ -33,3 +33,13 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+@media (max-width: 560px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stat strong {
+    font-size: 1.7rem;
+  }
+}

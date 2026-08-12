@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
@@ -10,6 +10,8 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './admin-layout.component.scss'
 })
 export class AdminLayoutComponent {
+  menuOpen = signal(false);
+
   readonly links = [
     { path: '/admin', label: 'Painel', exact: true },
     { path: '/admin/clientes', label: 'Clientes' },
@@ -24,4 +26,12 @@ export class AdminLayoutComponent {
   ];
 
   constructor(public auth: AuthService) {}
+
+  toggleMenu(): void {
+    this.menuOpen.update((v) => !v);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+  }
 }

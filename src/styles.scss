@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -242,9 +243,11 @@ p {
 
 .table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border: 1px solid var(--lumi-line);
   border-radius: var(--radius-md);
   background: var(--lumi-surface-strong);
+  max-width: 100%;
 }
 
 table.data {
@@ -355,5 +358,23 @@ table.data tr:last-child td {
 
   .section {
     padding: 4rem 0;
+  }
+
+  .panel {
+    padding: 1rem;
+  }
+
+  .panel-title {
+    font-size: 1.3rem;
+  }
+
+  table.data {
+    min-width: 620px;
+  }
+
+  table.data th,
+  table.data td {
+    padding: 0.75rem 0.8rem;
+    white-space: nowrap;
   }
 }

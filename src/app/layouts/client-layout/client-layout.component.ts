@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
@@ -10,6 +10,8 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './client-layout.component.scss'
 })
 export class ClientLayoutComponent {
+  menuOpen = signal(false);
+
   readonly links = [
     { path: '/minha-area', label: 'Início', exact: true },
     { path: '/minha-area/dados', label: 'Dados pessoais' },
@@ -21,4 +23,12 @@ export class ClientLayoutComponent {
   ];
 
   constructor(public auth: AuthService) {}
+
+  toggleMenu(): void {
+    this.menuOpen.update((v) => !v);
+  }
+
+  closeMenu(): void {
+    this.menuOpen.set(false);
+  }
 }
