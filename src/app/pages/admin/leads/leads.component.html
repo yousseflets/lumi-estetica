@@ -1,0 +1,36 @@
+<div class="panel">
+  <h2 class="panel-title">Leads recebidos pelo site</h2>
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr>
+          <th>Quando</th>
+          <th>Nome</th>
+          <th>Contato</th>
+          <th>Interesse</th>
+          <th>Mensagem</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (l of data.leads(); track l.id) {
+          <tr>
+            <td>{{ data.formatDateTime(l.criadoEm) }}</td>
+            <td>{{ l.nome }}</td>
+            <td>{{ l.email }}<br /><small>{{ l.telefone }}</small></td>
+            <td>{{ l.interesse }}</td>
+            <td>{{ l.mensagem }}</td>
+            <td>
+              <select [value]="l.status" (change)="atualizar(l.id, $any($event.target).value)">
+                <option value="novo">Novo</option>
+                <option value="contactado">Contactado</option>
+                <option value="convertido">Convertido</option>
+                <option value="arquivado">Arquivado</option>
+              </select>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

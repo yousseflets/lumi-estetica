@@ -1,0 +1,29 @@
+<div class="layout">
+  <form class="panel form" [formGroup]="form" (ngSubmit)="salvar()">
+    <h2 class="panel-title">Nova categoria</h2>
+    <div class="grid-2">
+      <div class="field"><label>Nome</label><input formControlName="nome" /></div>
+      <div class="field"><label>Slug</label><input formControlName="slug" /></div>
+    </div>
+    <div class="field"><label>Descrição</label><textarea formControlName="descricao"></textarea></div>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+  </form>
+
+  <div class="panel">
+    <h2 class="panel-title">Categorias</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Nome</th><th>Slug</th><th>Descrição</th></tr></thead>
+        <tbody>
+          @for (c of data.categorias(); track c.id) {
+            <tr>
+              <td>{{ c.nome }}</td>
+              <td>{{ c.slug }}</td>
+              <td>{{ c.descricao }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

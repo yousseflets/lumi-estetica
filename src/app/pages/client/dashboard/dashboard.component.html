@@ -1,0 +1,35 @@
+<div class="welcome reveal">
+  <p class="eyebrow">Olá</p>
+  <h1>{{ auth.user()?.nome }}</h1>
+  <p>Acompanhe seus cuidados, evoluções e próximos passos com a Lumi.</p>
+</div>
+
+<div class="grid-2">
+  <div class="panel">
+    <h2 class="panel-title">Próximos agendamentos</h2>
+    @if (proximos().length) {
+      <ul class="list">
+        @for (a of proximos(); track a.id) {
+          <li>
+            <strong>{{ a.procedimentoNome }}</strong>
+            <span>{{ data.formatDateTime(a.dataHora) }} · {{ a.profissionalNome }}</span>
+          </li>
+        }
+      </ul>
+    } @else {
+      <p class="empty">Nenhum agendamento futuro.</p>
+    }
+    <a routerLink="/minha-area/agendamentos" class="btn btn-ghost">Ver todos</a>
+  </div>
+
+  <div class="panel">
+    <h2 class="panel-title">Atalhos</h2>
+    <div class="links">
+      <a routerLink="/minha-area/historico">Histórico de atendimentos</a>
+      <a routerLink="/minha-area/evolucao">Fotos de evolução</a>
+      <a routerLink="/minha-area/recomendacoes">Recomendações</a>
+      <a routerLink="/minha-area/documentos">Documentos</a>
+      <a routerLink="/contato">Solicitar novo horário</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="stats">
+  <a routerLink="/admin/clientes" class="stat">
+    <span>Clientes</span>
+    <strong>{{ data.clientes().length }}</strong>
+  </a>
+  <a routerLink="/admin/agenda" class="stat">
+    <span>Agendamentos</span>
+    <strong>{{ data.agendamentos().length }}</strong>
+  </a>
+  <a routerLink="/admin/leads" class="stat">
+    <span>Leads novos</span>
+    <strong>{{ leadsNovos() }}</strong>
+  </a>
+  <a routerLink="/admin/procedimentos" class="stat">
+    <span>Procedimentos</span>
+    <strong>{{ data.procedimentos().length }}</strong>
+  </a>
+</div>
+
+<div class="grid-2">
+  <div class="panel">
+    <h2 class="panel-title">Próximos agendamentos</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Procedimento</th>
+            <th>Quando</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (a of data.agendamentos().slice(0, 5); track a.id) {
+            <tr>
+              <td>{{ a.clienteNome }}</td>
+              <td>{{ a.procedimentoNome }}</td>
+              <td>{{ data.formatDateTime(a.dataHora) }}</td>
+              <td><span class="badge">{{ a.status }}</span></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2 class="panel-title">Leads recentes</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Interesse</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (l of data.leads().slice(0, 5); track l.id) {
+            <tr>
+              <td>{{ l.nome }}</td>
+              <td>{{ l.interesse }}</td>
+              <td><span class="badge">{{ l.status }}</span></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+.narrow {
+  max-width: 760px;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  color: var(--lumi-blush-deep);
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1.25rem;
+}
+
+.cover {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 1.5rem;
+}
+
+.content {
+  font-size: 1.1rem;
+  color: var(--lumi-ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+.tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}

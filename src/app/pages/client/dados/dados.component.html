@@ -1,0 +1,16 @@
+<div class="panel">
+  <h1 class="panel-title">Dados pessoais</h1>
+  @if (cliente(); as c) {
+    <dl class="facts">
+      <div><dt>Nome</dt><dd>{{ c.nome }}</dd></div>
+      <div><dt>E-mail</dt><dd>{{ c.email }}</dd></div>
+      <div><dt>Telefone</dt><dd>{{ c.telefone }}</dd></div>
+      <div><dt>CPF</dt><dd>{{ c.cpf }}</dd></div>
+      <div><dt>Nascimento</dt><dd>{{ data.formatDate(c.dataNascimento) }}</dd></div>
+      <div><dt>Endereço</dt><dd>{{ c.endereco || '' }}</dd></div>
+      <div><dt>Observações</dt><dd>{{ c.observacoes || '' }}</dd></div>
+    </dl>
+  } @else {
+    <p>Dados não encontrados.</p>
+  }
+</div>

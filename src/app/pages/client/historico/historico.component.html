@@ -1,0 +1,21 @@
+<div class="panel">
+  <h1 class="panel-title">Histórico de atendimentos</h1>
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr><th>Data</th><th>Procedimento</th><th>Profissional</th><th>Observações</th><th>Valor</th></tr>
+      </thead>
+      <tbody>
+        @for (a of data.atendimentosCliente(); track a.id) {
+          <tr>
+            <td>{{ data.formatDate(a.data) }}</td>
+            <td>{{ a.procedimento }}</td>
+            <td>{{ a.profissional }}</td>
+            <td>{{ a.observacoes }}</td>
+            <td>{{ data.formatCurrency(a.valor) }}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

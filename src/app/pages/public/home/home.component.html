@@ -1,0 +1,102 @@
+<section class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <img
+      src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=2000&h=1400&fit=crop&q=80"
+      alt=""
+    />
+    <div class="hero-veil"></div>
+  </div>
+
+  <div class="container hero-content">
+        <h1>Sua melhor versão começa com cuidado.</h1>
+    <p class="lead">Protocolos personalizados, resultados naturais e um espaço feito para você se sentir acolhida.</p>
+    <div class="hero-actions">
+      <a routerLink="/contato" class="btn btn-primary">Agendar avaliação</a>
+      <a routerLink="/tratamentos" class="btn btn-ghost">Ver tratamentos</a>
+    </div>
+  </div>
+
+  <a class="hero-scroll" href="#tratamentos" aria-label="Ver tratamentos">
+    <span></span>
+  </a>
+</section>
+
+<section class="section" id="tratamentos">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Tratamentos</p>
+      <h2>Cuidado sob medida para a sua pele</h2>
+      <p>Selecionamos protocolos faciais e corporais com foco em naturalidade, conforto e evolução consistente.</p>
+    </div>
+
+    <div class="treat-grid">
+      @for (item of data.procedimentos().slice(0, 4); track item.id; let i = $index) {
+        <article class="treat" [style.animation-delay]="i * 90 + 'ms'">
+          <div class="treat-media">
+            <img [src]="item.imagem" [alt]="item.nome" />
+          </div>
+          <div class="treat-body">
+            <h3>{{ item.nome }}</h3>
+            <p>{{ item.descricao }}</p>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="center-cta">
+      <a routerLink="/tratamentos" class="btn btn-ghost">Todos os tratamentos</a>
+    </div>
+  </div>
+</section>
+
+<section class="section band">
+  <div class="container split">
+    <div class="reveal">
+      <p class="eyebrow">Antes e depois</p>
+      <h2>Evolução com transparência</h2>
+      <p>Acompanhe resultados reais de quem confiou no cuidado Lumi.</p>
+      <a routerLink="/antes-depois" class="btn btn-primary">Ver resultados</a>
+    </div>
+    <div class="compare reveal">
+      @if (data.antesDepois()[0]; as ad) {
+        <figure>
+          <img [src]="ad.imagemAntes" alt="Antes" />
+          <figcaption>Antes</figcaption>
+        </figure>
+        <figure>
+          <img [src]="ad.imagemDepois" alt="Depois" />
+          <figcaption>Depois</figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Depoimentos</p>
+      <h2>Quem passa por aqui recomenda</h2>
+    </div>
+    <div class="quotes">
+      @for (d of data.depoimentos().slice(0, 3); track d.id) {
+        <blockquote class="quote reveal">
+          <p>"{{ d.texto }}"</p>
+          <footer>
+            <strong>{{ d.nome }}</strong>
+            <span>{{ d.tratamento }}</span>
+          </footer>
+        </blockquote>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section cta-final">
+  <div class="container reveal">
+    <img src="assets/logo-lumi.png" alt="" class="cta-logo" aria-hidden="true" />
+    <h2>Pronta para começar?</h2>
+    <p>Agende uma avaliação e descubra o protocolo ideal para o seu momento.</p>
+    <a routerLink="/contato" class="btn btn-primary">Falar com a Lumi</a>
+  </div>
+</section>

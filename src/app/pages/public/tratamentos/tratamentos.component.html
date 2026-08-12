@@ -1,0 +1,36 @@
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Tratamentos</p>
+      <h2>Protocolos com intenção e delicadeza</h2>
+      <p>Escolha o cuidado ideal para o seu momento  facial, corporal ou harmonização.</p>
+    </div>
+
+    <div class="filters">
+      <button type="button" class="chip" [class.active]="categoria() === 'todas'" (click)="categoria.set('todas')">Todos</button>
+      @for (cat of data.categorias(); track cat.id) {
+        <button type="button" class="chip" [class.active]="categoria() === cat.id" (click)="categoria.set(cat.id)">
+          {{ cat.nome }}
+        </button>
+      }
+    </div>
+
+    <div class="grid">
+      @for (item of filtrados(); track item.id) {
+        <article class="item reveal">
+          <img [src]="item.imagem" [alt]="item.nome" />
+          <div class="body">
+            <span class="badge">{{ data.categoriaNome(item.categoriaId) }}</span>
+            <h3>{{ item.nome }}</h3>
+            <p>{{ item.descricao }}</p>
+            <div class="meta">
+              <span>{{ item.duracaoMinutos }} min</span>
+              <strong>{{ data.formatCurrency(item.preco) }}</strong>
+            </div>
+            <a routerLink="/contato" [queryParams]="{ interesse: item.nome }" class="btn btn-ghost">Agendar</a>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

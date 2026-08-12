@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Blog</p>
+      <h2>Conteúdo para cuidar melhor</h2>
+      <p>Orientações, bastidores de protocolos e hábitos que prolongam resultados.</p>
+    </div>
+
+    <div class="grid">
+      @for (post of data.posts(); track post.id) {
+        <article class="post reveal">
+          <a [routerLink]="['/blog', post.slug]">
+            <img [src]="post.capa" [alt]="post.titulo" />
+            <div>
+              <p class="meta">{{ data.formatDate(post.publicadoEm) }} · {{ post.autor }}</p>
+              <h3>{{ post.titulo }}</h3>
+              <p>{{ post.resumo }}</p>
+            </div>
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

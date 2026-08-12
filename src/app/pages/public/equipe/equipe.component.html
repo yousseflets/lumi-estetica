@@ -1,0 +1,27 @@
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Equipe</p>
+      <h2>Quem cuida de você</h2>
+      <p>Profissionais experientes, sensíveis ao detalhe e focadas em resultados naturais.</p>
+    </div>
+
+    <div class="grid">
+      @for (p of data.profissionais(); track p.id) {
+        @if (p.ativo) {
+          <article class="person reveal">
+            <img [src]="p.foto" [alt]="p.nome" />
+            <h3>{{ p.nome }}</h3>
+            <p class="role">{{ p.cargo }}</p>
+            <p>{{ p.bio }}</p>
+            <div class="tags">
+              @for (e of p.especialidades; track e) {
+                <span class="badge">{{ e }}</span>
+              }
+            </div>
+          </article>
+        }
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+<section class="section">
+  <div class="container layout">
+    <div class="intro reveal">
+      <p class="eyebrow">Contato / Agendamento</p>
+      <h2>Vamos cuidar juntas</h2>
+      <p>Conte o que você busca. Nossa equipe retorna com horários e o protocolo mais adequado.</p>
+      <ul>
+        <li>contato&#64;lumiestetica.com</li>
+        <li>(11) 3000-0000</li>
+        <li>SegSáb · 9h às 19h</li>
+        <li>São Paulo  SP</li>
+      </ul>
+    </div>
+
+    <form class="panel form reveal" [formGroup]="form" (ngSubmit)="enviar()">
+      @if (enviado()) {
+        <p class="success">Recebemos seu pedido. Em breve entraremos em contato.</p>
+      }
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="nome">Nome</label>
+          <input id="nome" formControlName="nome" placeholder="Seu nome" />
+        </div>
+        <div class="field">
+          <label for="telefone">Telefone</label>
+          <input id="telefone" formControlName="telefone" placeholder="(11) 90000-0000" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" formControlName="email" placeholder="voce@email.com" />
+      </div>
+
+      <div class="field">
+        <label for="interesse">Interesse</label>
+        <input id="interesse" formControlName="interesse" placeholder="Ex.: Limpeza de pele" />
+      </div>
+
+      <div class="field">
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" formControlName="mensagem" placeholder="Conte um pouco do seu objetivo"></textarea>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Enviar pedido</button>
+    </form>
+  </div>
+</section>

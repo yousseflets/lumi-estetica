@@ -1,0 +1,33 @@
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">Antes e depois</p>
+      <h2>Resultados com naturalidade</h2>
+      <p>Transformações reais, sempre respeitando a identidade de cada pessoa.</p>
+    </div>
+
+    <div class="list">
+      @for (item of data.antesDepois(); track item.id) {
+        @if (item.publicado) {
+          <article class="case reveal">
+            <div class="pair">
+              <figure>
+                <img [src]="item.imagemAntes" [alt]="'Antes  ' + item.titulo" />
+                <figcaption>Antes</figcaption>
+              </figure>
+              <figure>
+                <img [src]="item.imagemDepois" [alt]="'Depois  ' + item.titulo" />
+                <figcaption>Depois</figcaption>
+              </figure>
+            </div>
+            <div>
+              <h3>{{ item.titulo }}</h3>
+              <p class="proc">{{ item.procedimento }}</p>
+              <p>{{ item.descricao }}</p>
+            </div>
+          </article>
+        }
+      }
+    </div>
+  </div>
+</section>

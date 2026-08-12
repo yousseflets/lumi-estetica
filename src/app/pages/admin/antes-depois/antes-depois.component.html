@@ -1,0 +1,32 @@
+<div class="layout">
+  <form class="panel form" [formGroup]="form" (ngSubmit)="salvar()">
+    <h2 class="panel-title">Novo antes/depois</h2>
+    <div class="grid-2">
+      <div class="field"><label>Título</label><input formControlName="titulo" /></div>
+      <div class="field"><label>Procedimento</label><input formControlName="procedimento" /></div>
+      <div class="field"><label>URL imagem antes</label><input formControlName="imagemAntes" /></div>
+      <div class="field"><label>URL imagem depois</label><input formControlName="imagemDepois" /></div>
+    </div>
+    <div class="field"><label>Descrição</label><textarea formControlName="descricao"></textarea></div>
+    <label class="check"><input type="checkbox" formControlName="publicado" /> Publicado</label>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+  </form>
+
+  <div class="panel">
+    <h2 class="panel-title">Casos</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Título</th><th>Procedimento</th><th>Status</th></tr></thead>
+        <tbody>
+          @for (item of data.antesDepois(); track item.id) {
+            <tr>
+              <td>{{ item.titulo }}</td>
+              <td>{{ item.procedimento }}</td>
+              <td><span class="badge" [class.ok]="item.publicado">{{ item.publicado ? 'Publicado' : 'Rascunho' }}</span></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

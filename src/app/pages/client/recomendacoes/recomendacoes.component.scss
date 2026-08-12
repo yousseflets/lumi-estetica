@@ -1,0 +1,24 @@
+.list {
+  display: grid;
+  gap: 1rem;
+}
+
+article {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--lumi-line);
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+p {
+  color: var(--lumi-ink-soft);
+  margin-bottom: 0.4rem;
+}
+
+span {
+  color: var(--lumi-muted);
+  font-size: 0.85rem;
+}

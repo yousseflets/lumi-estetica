@@ -1,0 +1,29 @@
+<div class="shell">
+  <aside class="side">
+    <a routerLink="/" class="brand" aria-label="LUMI - inicio">
+      <img src="assets/logo-lumi.png" alt="LUMI" class="side-logo" />
+    </a>
+    <p class="side-label">Área do cliente</p>
+    <div class="user">
+      @if (auth.user()?.avatar) {
+        <img [src]="auth.user()?.avatar" [alt]="auth.user()?.nome" />
+      }
+      <div>
+        <strong>{{ auth.user()?.nome }}</strong>
+        <span>{{ auth.user()?.email }}</span>
+      </div>
+    </div>
+    <nav>
+      @for (link of links; track link.path) {
+        <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: !!link.exact }">
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+    <button type="button" class="btn btn-ghost" (click)="auth.logout()">Sair</button>
+  </aside>
+
+  <section class="content">
+    <router-outlet />
+  </section>
+</div>

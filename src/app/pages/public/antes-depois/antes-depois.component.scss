@@ -1,0 +1,63 @@
+.list {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.case {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+figure {
+  margin: 0;
+  position: relative;
+}
+
+img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+figcaption {
+  position: absolute;
+  left: 0.7rem;
+  bottom: 0.7rem;
+  background: rgba(31, 26, 28, 0.72);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.5rem;
+  border-radius: 999px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.proc {
+  color: var(--lumi-blush-deep);
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+p {
+  color: var(--lumi-ink-soft);
+}
+
+@media (max-width: 900px) {
+  .case {
+    grid-template-columns: 1fr;
+  }
+}

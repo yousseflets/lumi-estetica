@@ -1,0 +1,20 @@
+<div class="panel">
+  <h1 class="panel-title">Próximos agendamentos</h1>
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr><th>Quando</th><th>Procedimento</th><th>Profissional</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        @for (a of meus(); track a.id) {
+          <tr>
+            <td>{{ data.formatDateTime(a.dataHora) }}</td>
+            <td>{{ a.procedimentoNome }}</td>
+            <td>{{ a.profissionalNome }}</td>
+            <td><span class="badge">{{ a.status }}</span></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

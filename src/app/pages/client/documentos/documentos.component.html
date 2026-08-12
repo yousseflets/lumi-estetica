@@ -1,0 +1,20 @@
+<div class="panel">
+  <h1 class="panel-title">Documentos</h1>
+  <div class="table-wrap">
+    <table class="data">
+      <thead>
+        <tr><th>Documento</th><th>Tipo</th><th>Data</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (d of data.documentos(); track d.id) {
+          <tr>
+            <td>{{ d.titulo }}</td>
+            <td>{{ d.tipo }}</td>
+            <td>{{ data.formatDate(d.data) }}</td>
+            <td><a class="btn btn-ghost" [href]="d.url">Abrir</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

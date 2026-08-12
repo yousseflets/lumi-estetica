@@ -1,0 +1,33 @@
+<div class="layout">
+  <form class="panel form" [formGroup]="form" (ngSubmit)="salvar()">
+    <h2 class="panel-title">Novo depoimento</h2>
+    <div class="grid-2">
+      <div class="field"><label>Nome</label><input formControlName="nome" /></div>
+      <div class="field"><label>Tratamento</label><input formControlName="tratamento" /></div>
+      <div class="field"><label>Nota</label><input type="number" min="1" max="5" formControlName="nota" /></div>
+      <div class="field"><label>Data</label><input type="date" formControlName="data" /></div>
+    </div>
+    <div class="field"><label>Texto</label><textarea formControlName="texto"></textarea></div>
+    <label class="check"><input type="checkbox" formControlName="publicado" /> Publicado</label>
+    <button class="btn btn-primary" type="submit">Salvar</button>
+  </form>
+
+  <div class="panel">
+    <h2 class="panel-title">Depoimentos</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Nome</th><th>Tratamento</th><th>Nota</th><th>Status</th></tr></thead>
+        <tbody>
+          @for (d of data.depoimentos(); track d.id) {
+            <tr>
+              <td>{{ d.nome }}</td>
+              <td>{{ d.tratamento }}</td>
+              <td>{{ d.nota }}/5</td>
+              <td><span class="badge" [class.ok]="d.publicado">{{ d.publicado ? 'Publicado' : 'Rascunho' }}</span></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

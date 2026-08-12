@@ -1,0 +1,12 @@
+<div class="panel">
+  <h1 class="panel-title">Recomendações</h1>
+  <div class="list">
+    @for (r of data.recomendacoes(); track r.id) {
+      <article>
+        <h2>{{ r.titulo }}</h2>
+        <p>{{ r.descricao }}</p>
+        <span>{{ r.profissional }} · {{ data.formatDate(r.data) }}</span>
+      </article>
+    }
+  </div>
+</div>

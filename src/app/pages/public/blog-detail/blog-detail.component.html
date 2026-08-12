@@ -1,0 +1,19 @@
+<section class="section">
+  <div class="container narrow">
+    @if (post(); as p) {
+      <a routerLink="/blog" class="back">? Voltar ao blog</a>
+      <p class="eyebrow">{{ data.formatDate(p.publicadoEm) }} · {{ p.autor }}</p>
+      <h1>{{ p.titulo }}</h1>
+      <img [src]="p.capa" [alt]="p.titulo" class="cover" />
+      <p class="content">{{ p.conteudo }}</p>
+      <div class="tags">
+        @for (tag of p.tags; track tag) {
+          <span class="badge">{{ tag }}</span>
+        }
+      </div>
+    } @else {
+      <h1>Post não encontrado</h1>
+      <a routerLink="/blog" class="btn btn-ghost">Voltar</a>
+    }
+  </div>
+</section>

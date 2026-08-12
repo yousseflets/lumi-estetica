@@ -1,0 +1,35 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat {
+  background: #fff;
+  border: 1px solid var(--lumi-line);
+  border-radius: 16px;
+  padding: 1.1rem 1.2rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.stat span {
+  color: var(--lumi-muted);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.stat strong {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}

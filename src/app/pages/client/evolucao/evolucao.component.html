@@ -1,0 +1,14 @@
+<div class="panel">
+  <h1 class="panel-title">Fotos de evolução</h1>
+  <div class="grid">
+    @for (f of data.fotosEvolucao(); track f.id) {
+      <figure>
+        <img [src]="f.imagem" [alt]="f.titulo" />
+        <figcaption>
+          <strong>{{ f.titulo }}</strong>
+          <span>{{ data.formatDate(f.data) }} · {{ f.procedimento }}</span>
+        </figcaption>
+      </figure>
+    }
+  </div>
+</div>

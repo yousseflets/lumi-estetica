@@ -1,0 +1,66 @@
+<div class="layout">
+  <form class="panel form" [formGroup]="form" (ngSubmit)="salvar()">
+    <h2 class="panel-title">Novo agendamento</h2>
+    <div class="grid-2">
+      <div class="field">
+        <label>Cliente</label>
+        <select formControlName="clienteId">
+          <option value="">Selecione</option>
+          @for (c of data.clientes(); track c.id) {
+            <option [value]="c.id">{{ c.nome }}</option>
+          }
+        </select>
+      </div>
+      <div class="field">
+        <label>Procedimento</label>
+        <select formControlName="procedimentoId">
+          <option value="">Selecione</option>
+          @for (p of data.procedimentos(); track p.id) {
+            <option [value]="p.id">{{ p.nome }}</option>
+          }
+        </select>
+      </div>
+      <div class="field">
+        <label>Profissional</label>
+        <select formControlName="profissionalId">
+          <option value="">Selecione</option>
+          @for (p of data.profissionais(); track p.id) {
+            <option [value]="p.id">{{ p.nome }}</option>
+          }
+        </select>
+      </div>
+      <div class="field"><label>Data e hora</label><input type="datetime-local" formControlName="dataHora" /></div>
+      <div class="field">
+        <label>Status</label>
+        <select formControlName="status">
+          <option value="agendado">Agendado</option>
+          <option value="confirmado">Confirmado</option>
+          <option value="concluido">Concluído</option>
+          <option value="cancelado">Cancelado</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><label>Observações</label><textarea formControlName="observacoes"></textarea></div>
+    <button class="btn btn-primary" type="submit">Agendar</button>
+  </form>
+
+  <div class="panel">
+    <h2 class="panel-title">Agenda</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Quando</th><th>Cliente</th><th>Procedimento</th><th>Profissional</th><th>Status</th></tr></thead>
+        <tbody>
+          @for (a of data.agendamentos(); track a.id) {
+            <tr>
+              <td>{{ data.formatDateTime(a.dataHora) }}</td>
+              <td>{{ a.clienteNome }}</td>
+              <td>{{ a.procedimentoNome }}</td>
+              <td>{{ a.profissionalNome }}</td>
+              <td><span class="badge">{{ a.status }}</span></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

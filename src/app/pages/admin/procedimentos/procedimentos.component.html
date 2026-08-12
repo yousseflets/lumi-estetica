@@ -1,0 +1,43 @@
+<div class="layout">
+  <form class="panel form" [formGroup]="form" (ngSubmit)="salvar()">
+    <h2 class="panel-title">Novo procedimento</h2>
+    <div class="grid-2">
+      <div class="field"><label>Nome</label><input formControlName="nome" /></div>
+      <div class="field">
+        <label>Categoria</label>
+        <select formControlName="categoriaId">
+          <option value="">Selecione</option>
+          @for (c of data.categorias(); track c.id) {
+            <option [value]="c.id">{{ c.nome }}</option>
+          }
+        </select>
+      </div>
+      <div class="field"><label>Duração (min)</label><input type="number" formControlName="duracaoMinutos" /></div>
+      <div class="field"><label>Preço</label><input type="number" formControlName="preco" /></div>
+    </div>
+    <div class="field"><label>Descrição</label><textarea formControlName="descricao"></textarea></div>
+    <div class="field"><label>URL da imagem</label><input formControlName="imagem" /></div>
+    <label class="check"><input type="checkbox" formControlName="destaque" /> Destaque no site</label>
+    <button class="btn btn-primary" type="submit">Cadastrar</button>
+  </form>
+
+  <div class="panel">
+    <h2 class="panel-title">Procedimentos</h2>
+    <div class="table-wrap">
+      <table class="data">
+        <thead><tr><th>Nome</th><th>Categoria</th><th>Duração</th><th>Preço</th><th>Destaque</th></tr></thead>
+        <tbody>
+          @for (p of data.procedimentos(); track p.id) {
+            <tr>
+              <td>{{ p.nome }}</td>
+              <td>{{ data.categoriaNome(p.categoriaId) }}</td>
+              <td>{{ p.duracaoMinutos }} min</td>
+              <td>{{ data.formatCurrency(p.preco) }}</td>
+              <td>{{ p.destaque ? 'Sim' : 'Não' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
